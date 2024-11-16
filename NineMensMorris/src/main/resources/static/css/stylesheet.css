@@ -1,0 +1,1005 @@
+.modalLogin {
+   display: none;
+   position: relative;
+   z-index: 1;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   overflow: auto;
+   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+   background-color: white;
+   margin: 10% auto;
+   padding: 60px;
+   border-radius: 10px;
+   width: 60%;
+   max-width: 500px;
+   position: relative;
+}
+
+.close,
+.closeLogin{
+   position: absolute;
+   top: 40px;
+   right: 45px;
+   color: black;
+   font-size: 40px;
+   font-weight: bold;
+}
+
+.close:hover,
+.close:focus,
+.closeLogin:hover,
+.closeLogin:focus{
+   color: red;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+.loginContainer {
+   text-align: center;
+   font-family: 'Open Sans', sans-serif;
+   margin-top: 30px;
+   background-color: white;
+   width: 35%;
+}
+
+.loginContainer h1 {
+   font-size: 36px;
+   margin-bottom: 40px;
+
+}
+
+form {
+   display: inline-block;
+   text-align: left;
+}
+
+label {
+   font-size: 24px;
+   display: block;
+   margin-bottom: 10px;
+   background-color: white;
+}
+
+
+input[type="text"],
+input[type="password"] {
+   margin: 10px 0 30px 0;
+   padding: 10px;
+   font-size: 24px;
+   display: block;
+   width: 100%;
+   border: none;
+   border-bottom: 2px solid #aaa;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+   border-bottom: 2px solid #304b5a;
+   margin-bottom: 30px;
+   outline: none;
+}
+
+
+input[type="submit"]:hover {
+   background-color: #23333d;
+}
+
+/*registracia*/
+.modalRegistration,
+.modalLogin
+{
+   display: none;
+   position: fixed;
+   z-index: 1;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   overflow: auto;
+   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalRegistration-content,
+.modalLogin-content
+{
+   background-color: white;
+   margin: 10% auto;
+   padding: 60px;
+   border-radius: 10px;
+   width: 60%;
+   max-width: 500px;
+   position: relative;
+}
+
+
+.loginContainer,
+.registrstionContainer
+{
+   text-align: center;
+   font-family: 'Open Sans', sans-serif;
+   margin-top: 30px;
+}
+
+.loginContainer h1,
+.registerContainer h1
+{
+   font-size: 36px;
+   margin-bottom: 40px;
+   font-family: 'Open Sans', sans-serif;
+}
+
+form {
+   display: inline-block;
+   text-align: left;
+}
+
+label {
+   font-size: 24px;
+   display: block;
+   margin-bottom: 10px;
+}
+
+
+input[type="text"],
+input[type="password"] {
+   margin: 10px 0 30px 0;
+   padding: 10px;
+   font-size: 24px;
+   display: block;
+   width: 100%;
+   border: none;
+   border-bottom: 2px solid #aaa;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+   border-bottom: 2px solid #304b5a;
+   margin-bottom: 30px;
+   outline: none;
+}
+
+input[type="submit"] {
+   margin-top: 10px;
+   margin-bottom: 50px;
+   width: 60%;
+   padding: 10px 20px;
+   font-size: 24px;
+   background-color: #304b5a;
+   color: white;
+   border: none;
+   border-radius: 30px;
+   cursor: pointer;
+   position: center;
+}
+
+input[type="submit"]:hover {
+   background-color: #23333d;
+}
+
+
+body {
+   background-image: url('../images/ninemensmorris/background1.png');
+   background-size: 300px;
+   background-position: center;
+   background-repeat: repeat;
+}
+
+.loggedUserContainer {
+   margin-top: -20px;
+   margin-bottom: 15px;
+   font-size: 20px;
+   color: #585858;
+}
+
+.loggedUser {
+   margin-bottom: 30px;
+}
+
+.gameStatus {
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   background-color: rgba(169, 173, 183, 0.8);
+   padding: 10px;
+   border-radius: 20px;
+   margin: 50px auto;
+   width: 40%;
+}
+
+
+.playerOnTurn {
+   font-size: 20px;
+   font-family: 'Open Sans', sans-serif;
+   margin-right: 20px;
+}
+
+.gameInfo {
+   font-size: 20px;
+   font-family: 'Open Sans', sans-serif;
+}
+
+
+table.morrisboard
+{
+   border-spacing: 0;
+}
+
+.morrisboard td {
+   background-position: center;
+   width: 100px;
+   height: 100px;
+   padding: 0;
+   border: 0;
+   /*margin: -2px auto 0 auto;*/
+   display: inline-table;
+   pointer-events: none;
+   background-size: 100%;
+   background-repeat: no-repeat;
+}
+
+.morrisboard td a
+{
+   width: 100%;
+   height: 100%;
+   display: block;
+   pointer-events: auto;
+}
+
+.morrisboard td.empty-TL,
+.morrisboard td.empty-TL-hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-TL.png");
+}
+
+.morrisboard td.empty-TM,
+.morrisboard td.empty-TM-hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-TM.png");
+}
+
+.morrisboard td.empty-TR,
+.morrisboard td.empty-TR-hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-TR.png");
+}
+
+.morrisboard td.empty-ML,
+.morrisboard td.empty-ML-hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-ML.png");
+}
+
+.morrisboard td.empty-MM,
+.morrisboard td.empty-MM-hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-MM.png");
+}
+
+.morrisboard td.empty-MR,
+.morrisboard td.empty-MR-hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-MR.png");
+}
+
+.morrisboard td.empty-BL,
+.morrisboard td.empty-BL-hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-BL.png");
+}
+
+.morrisboard td.empty-BM,
+.morrisboard td.empty-BM-hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-BM.png");
+}
+
+.morrisboard td.empty-BR,
+.morrisboard td.empty-BR-hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-BR.png");
+}
+
+.morrisboard td.horizontal
+{
+   background-image: url("../images/ninemensmorris/empty/horizontal.png");
+}
+
+.morrisboard td.vertical
+{
+   background-image: url("../images/ninemensmorris/empty/vertical.png");
+}
+
+.morrisboard td.none
+{
+   background-image: url("../images/ninemensmorris/empty/none.png");
+}
+
+.morrisboard td.empty-TL-hover:hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-TL-hover.png");
+}
+
+.morrisboard td.empty-TM-hover:hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-TM-hover.png");
+}
+
+.morrisboard td.empty-TR-hover:hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-TR-hover.png");
+}
+
+.morrisboard td.empty-ML-hover:hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-ML-hover.png");
+}
+
+.morrisboard td.empty-MR-hover:hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-MR-hover.png");
+}
+
+.morrisboard td.empty-MM-hover:hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-MM-hover.png");
+}
+
+.morrisboard td.empty-BL-hover:hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-BL-hover.png");
+}
+
+.morrisboard td.empty-BR-hover:hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-BR-hover.png");
+}
+
+.morrisboard td.empty-BM-hover:hover
+{
+   background-image: url("../images/ninemensmorris/empty/empty-BM-hover.png");
+}
+
+
+.morrisboard td.white-TR
+{
+   background-image: url("../images/ninemensmorris/white/white-TR.png");
+}
+
+.morrisboard td.white-TM
+{
+   background-image: url("../images/ninemensmorris/white/white-TM.png");
+}
+
+.morrisboard td.white-ML
+{
+   background-image: url("../images/ninemensmorris/white/white-ML.png");
+}
+
+.morrisboard td.white-MR
+{
+   background-image: url("../images/ninemensmorris/white/white-MR.png");
+}
+
+.morrisboard td.white-MM
+{
+   background-image: url("../images/ninemensmorris/white/white-MM.png");
+}
+
+.morrisboard td.white-BL
+{
+   background-image: url("../images/ninemensmorris/white/white-BL.png");
+}
+
+.morrisboard td.white-BR
+{
+   background-image: url("../images/ninemensmorris/white/white-BR.png");
+}
+
+.morrisboard td.white-BM
+{
+   background-image: url("../images/ninemensmorris/white/white-BM.png");
+}
+
+.morrisboard td.black-TL
+{
+   background-image: url("../images/ninemensmorris/black/black-TL.png");
+}
+
+.morrisboard td.black-TR
+{
+   background-image: url("../images/ninemensmorris/black/black-TR.png");
+}
+
+.morrisboard td.black-TM
+{
+   background-image: url("../images/ninemensmorris/black/black-TM.png");
+}
+
+.morrisboard td.black-ML
+{
+   background-image: url("../images/ninemensmorris/black/black-ML.png");
+}
+
+.morrisboard td.black-MR
+{
+   background-image: url("../images/ninemensmorris/black/black-MR.png");
+}
+
+.morrisboard td.black-MM
+{
+   background-image: url("../images/ninemensmorris/black/black-MM.png");
+}
+
+.morrisboard td.black-BL
+{
+   background-image: url("../images/ninemensmorris/black/black-BL.png");
+}
+
+.morrisboard td.black-BR
+{
+   background-image: url("../images/ninemensmorris/black/black-BR.png");
+}
+
+.morrisboard td.black-BM
+{
+   background-image: url("../images/ninemensmorris/black/black-BM.png");
+}
+
+.morrisboard td.white-TL
+{
+   background-image: url("../images/ninemensmorris/white/white-TL.png");
+}
+
+.morrisboard td.white-TL-selected,
+.morrisboard td.white-TL-selected
+{
+   background-image: url("../images/ninemensmorris/white/white-TL-selected.png");
+}
+
+.morrisboard td.white-TR-selected,
+.morrisboard td.white-TR-selected
+{
+   background-image: url("../images/ninemensmorris/white/white-TR-selected.png");
+}
+
+.morrisboard td.white-TM-selected,
+.morrisboard td.white-TM-selected
+{
+   background-image: url("../images/ninemensmorris/white/white-TM-selected.png");
+}
+
+.morrisboard td.white-ML-selected,
+.morrisboard td.white-ML-selected
+{
+   background-image: url("../images/ninemensmorris/white/white-ML-selected.png");
+}
+
+.morrisboard td.white-MM-selected,
+.morrisboard td.white-MM-selected
+{
+   background-image: url("../images/ninemensmorris/white/white-MM-selected.png");
+}
+
+.morrisboard td.white-MR-selected,
+.morrisboard td.white-MR-selected
+{
+   background-image: url("../images/ninemensmorris/white/white-MR-selected.png");
+}
+
+.morrisboard td.white-BL-selected,
+.morrisboard td.white-BL-selected
+{
+   background-image: url("../images/ninemensmorris/white/white-BL-selected.png");
+}
+
+.morrisboard td.white-BM-selected,
+.morrisboard td.white-BM-selected
+{
+   background-image: url("../images/ninemensmorris/white/white-BM-selected.png");
+}
+
+.morrisboard td.white-BR-selected,
+.morrisboard td.white-BR-selected
+{
+   background-image: url("../images/ninemensmorris/white/white-BR-selected.png");
+}
+
+.morrisboard td.black-TL-selected,
+.morrisboard td.black-TL-selected
+{
+   background-image: url("../images/ninemensmorris/black/black-TL-selected.png");
+}
+
+.morrisboard td.black-TR-selected,
+.morrisboard td.black-TR-selected
+{
+   background-image: url("../images/ninemensmorris/black/black-TR-selected.png");
+}
+
+.morrisboard td.black-TM-selected,
+.morrisboard td.black-TM-selected
+{
+   background-image: url("../images/ninemensmorris/black/black-TM-selected.png");
+}
+
+.morrisboard td.black-ML-selected,
+.morrisboard td.black-ML-selected
+{
+   background-image: url("../images/ninemensmorris/black/black-ML-selected.png");
+}
+
+.morrisboard td.black-MM-selected,
+.morrisboard td.black-MM-selected
+{
+   background-image: url("../images/ninemensmorris/black/black-MM-selected.png");
+}
+
+.morrisboard td.black-MR-selected,
+.morrisboard td.black-MR-selected
+{
+   background-image: url("../images/ninemensmorris/black/black-MR-selected.png");
+}
+
+.morrisboard td.black-BL-selected,
+.morrisboard td.black-BL-selected
+{
+   background-image: url("../images/ninemensmorris/black/black-BL-selected.png");
+}
+
+.morrisboard td.black-BM-selected,
+.morrisboard td.black-BM-selected
+{
+   background-image: url("../images/ninemensmorris/black/black-BM-selected.png");
+}
+
+.morrisboard td.black-BR-selected,
+.morrisboard td.black-BR-selected
+{
+   background-image: url("../images/ninemensmorris/black/black-BR-selected.png");
+}
+
+.morrisboard td.white-TL:hover
+{
+   background-image: url("../images/ninemensmorris/white/white-TL-selected.png");
+}
+
+.morrisboard td.white-TR:hover
+{
+   background-image: url("../images/ninemensmorris/white/white-TR-selected.png");
+}
+
+.morrisboard td.white-TM:hover
+{
+   background-image: url("../images/ninemensmorris/white/white-TM-selected.png");
+}
+
+.morrisboard td.white-ML:hover
+{
+   background-image: url("../images/ninemensmorris/white/white-ML-selected.png");
+}
+
+.morrisboard td.white-MR:hover
+{
+   background-image: url("../images/ninemensmorris/white/white-MR-selected.png");
+}
+
+.morrisboard td.white-MM:hover
+{
+   background-image: url("../images/ninemensmorris/white/white-MM-selected.png");
+}
+
+.morrisboard td.white-BL:hover
+{
+   background-image: url("../images/ninemensmorris/white/white-BL-selected.png");
+}
+
+.morrisboard td.white-BR:hover
+{
+   background-image: url("../images/ninemensmorris/white/white-BR-selected.png");
+}
+
+.morrisboard td.white-BM:hover
+{
+   background-image: url("../images/ninemensmorris/white/white-BM-selected.png");
+}
+
+.morrisboard td.black-TL:hover
+{
+   background-image: url("../images/ninemensmorris/black/black-TL-selected.png");
+}
+
+.morrisboard td.black-TR:hover
+{
+   background-image: url("../images/ninemensmorris/black/black-TR-selected.png");
+}
+
+.morrisboard td.black-TM:hover
+{
+   background-image: url("../images/ninemensmorris/black/black-TM-selected.png");
+}
+
+.morrisboard td.black-ML:hover
+{
+   background-image: url("../images/ninemensmorris/black/black-ML-selected.png");
+}
+
+.morrisboard td.black-MR:hover
+{
+   background-image: url("../images/ninemensmorris/black/black-MR-selected.png");
+}
+
+.morrisboard td.black-MM:hover
+{
+   background-image: url("../images/ninemensmorris/black/black-MM-selected.png");
+}
+
+.morrisboard td.black-BL:hover
+{
+   background-image: url("../images/ninemensmorris/black/black-BL-selected.png");
+}
+
+.morrisboard td.black-BR:hover
+{
+   background-image: url("../images/ninemensmorris/black/black-BR-selected.png");
+}
+
+.morrisboard td.black-BM:hover
+{
+   background-image: url("../images/ninemensmorris/black/black-BM-selected.png");
+}
+
+.centered {
+   display: flex;
+   justify-content: center;
+}
+
+.leaderboard {
+   position: relative;
+   bottom: -58px;
+   left: 20px;
+   width: 100%;
+   max-width: 800px;
+   margin: 0 auto;
+   background-color: rgba(169, 173, 183, 0.8);
+   color: #000;
+   text-align: center;
+   border-radius: 20px;
+}
+
+
+.leaderboard {
+   width: 100%;
+   max-width: 800px;
+   margin: 0 20px;
+   background-color: rgba(204, 185, 173, 0.8);
+   color: #000;
+   text-align: center;
+   border-radius: 20px;
+}
+
+
+.leaderboardTitle {
+   padding: 10px;
+   font-size: 30px;
+   color: white;
+   text-align: left;
+   margin-left: 20px;
+   margin-top: 5px;
+   margin-bottom: 5px;
+}
+
+
+.leaderboard th {
+   font-size: 17px;
+   font-style: italic;
+   padding: 12px 8px;
+   background-color: #000;
+   border-radius: 20px;
+   color: #fffdfd;
+}
+
+.leaderboard td {
+   font-size: 20px;
+   padding: 8px;
+   border: none !important;
+   text-align: center;
+}
+
+/*.leaderboard td:last-child {*/
+/*   padding-left: 16px;*/
+/*   padding-right: 16px;*/
+/*}*/
+
+
+/*.leaderboard tr:nth-child(even) {*/
+/*   background-color: #f2f2f2;*/
+/*}*/
+
+/*.leaderboard th:first-child,*/
+/*.leaderboard td:first-child {*/
+/*   width: 5%;*/
+/*}*/
+
+/*.leaderboard th:nth-child(2),*/
+/*.leaderboard td:nth-child(2) {*/
+/*   width: 40%;*/
+/*   text-align: left;*/
+/*   padding-left: 12px;*/
+/*}*/
+
+/*.leaderboard th:nth-child(3),*/
+/*.leaderboard td:nth-child(3) {*/
+/*   width: 20%;*/
+/*}*/
+
+/*.leaderboard th:last-child,*/
+/*.leaderboard td:last-child {*/
+/*   width: 35%;*/
+/*   font-size: 16px;*/
+/*   font-style: italic;*/
+/*   color: #666;*/
+/*}*/
+
+.comments {
+   position: relative;
+   bottom: 240px;
+   left: 1000px;
+   width: 100%;
+   max-width: 800px;
+   /*margin: 0 auto;*/
+   background-color: rgba(204, 185, 173, 0.8);
+   color: #000;
+   text-align: center;
+   border-radius: 20px;
+}
+
+.commentsTitle {
+   padding: 10px;
+   font-size: 30px;
+   color: white;
+   text-align: left;
+   margin-left: 20px;
+   margin-top: 5px;
+   margin-bottom: 5px;
+}
+
+.comments th {
+   font-size: 17px;
+   font-style: italic;
+   padding: 12px 8px;
+   background-color: #000;
+   color: #fffdfd;
+   border-radius: 20px;
+}
+
+.comments td {
+   font-size: 20px;
+   padding: 8px;
+   border: none !important;
+   text-align: center;
+}
+
+/*.comments td:last-child {*/
+/*   padding-left: 16px;*/
+/*   padding-right: 16px;*/
+/*   border-radius: 20px;*/
+/*}*/
+
+/*.comments tr:nth-child(even) {*/
+/*   background-color: #f2f2f2;*/
+/*   border-radius: 20px;*/
+/*}*/
+
+/*.comments th:first-child,*/
+/*.comments td:first-child {*/
+/*   width: 5%;*/
+/*   border-radius: 20px;*/
+/*}*/
+
+/*.comments th:nth-child(2),*/
+/*.comments td:nth-child(2) {*/
+/*   width: 40%;*/
+/*   text-align: left;*/
+/*   padding-left: 12px;*/
+/*}*/
+
+/*.comments th:nth-child(3),*/
+/*.comments td:nth-child(3) {*/
+/*   width: 20%;*/
+/*}*/
+
+/*.comments th:last-child,*/
+/*.comments td:last-child {*/
+/*   width: 35%;*/
+/*   font-size: 16px;*/
+/*   font-style: italic;*/
+/*   color: #666;*/
+/*}*/
+
+/*submit banner na comenty*/
+
+.comentContainer {
+   display: flex;
+   position: relative;
+   left: 1002px;
+   bottom: 180px;
+   border-collapse: collapse;
+}
+
+.comentContainer form {
+   display: flex;
+   align-items: center;
+   border-collapse: collapse;
+}
+
+.comentContainer label {
+   display: none;
+}
+
+.comentContainer input[type="text"] {
+   width: 680px;
+   height: 50px;
+   padding: 0 10px;
+   border-radius: 10px 0 0 10px;
+   font-size: 16px;
+   color: #555;
+   background-color: rgba(204, 185, 173, 0.9);
+}
+
+.comentContainer button {
+   height: 51px;
+   position: relative;
+   padding: 0 20px;
+   background-color: #4e6674;
+   border: none;
+   border-radius: 0 10px 10px 0;
+   font-size: 16px;
+   color: #fff;
+   cursor: pointer;
+   bottom: 10px;
+   left: 0;
+}
+
+.comentContainer button:hover {
+   background-color: #2a4250;
+}
+
+@media only screen and (max-width: 600px) {
+   .comentContainer input[type="text"] {
+      width: 100%;
+      border-radius: 5px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+   }
+
+   .comentContainer button {
+      border-radius: 5px;
+   }
+}
+
+/*rating*/
+.rating {
+   position: relative;
+   bottom: 340px;
+   left: 150px;
+   width: 100%;
+   max-width: 600px;
+   height: 80px;
+   background-color: black;
+   color: #000;
+   text-align: center;
+   border-radius: 20px;
+   border-collapse: collapse;
+}
+
+.averageRatingTitle {
+   padding: 20px;
+   font-size: 30px;
+   color: white;
+   text-align: left;
+   margin-left: 50px;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   border-radius: 20px;
+}
+
+.rating th {
+   font-size: 30px;
+   font-style: italic;
+   padding: 12px 8px;
+   background-color: #000;
+   color: white;
+   border-radius: 20px;
+}
+
+.rating td.averageRatingValue {
+   font-size: 30px;
+   padding: 0;
+   border: none !important;
+   text-align: center;
+   display: block;
+}
+
+.rating .averageRatingValue::after {
+   content: "/ 5";
+   display: inline-block;
+   font-size: 30px;
+   margin-left: 10px;
+   color: white;
+}
+
+button.ratingButton {
+   background-color: #4e6674;
+   border: none;
+   color: white;
+   padding: 40px;
+   text-align: center;
+   text-decoration: none;
+   font-size: 30px;
+   border-radius: 20px;
+   cursor: pointer;
+   height: 20px;
+   line-height: 0;
+}
+
+
+#ratingButtonContainer {
+   margin-top: -300px;
+   margin-left: 17%;
+   display: flex;
+}
+
+
+button.ratingButton:hover {
+   background-color: #2a4250;
+}
+
+.ratingButtons {
+   display: none;
+   position: relative;
+   bottom: -120px;
+   margin-left: -370px;
+}
+
+.ratingButtons button {
+   margin: 10px;
+   width: 80px;
+   height: 80px;
+   font-size: 30px;
+   border-radius: 20px;
+   border: none;
+}
+
+.value1Button
+{
+   background-color: #8f2828;
+}
+.value2Button
+{
+   background-color: #FF6962;
+}
+
+.value3Button
+{
+   background-color: #FB9662;
+}
+
+.value4Button
+{
+   background-color: #FDDD5C;
+}
+
+.value5Button
+{
+   background-color: #77DD76;
+}
+
+
+
+
+

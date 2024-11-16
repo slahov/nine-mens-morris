@@ -1,0 +1,54 @@
+body
+{
+    background-image: url("../images/ninemensmorris/background.png");
+}
+.login-form {
+    background-image: none;
+}
+
+.game-link {
+    color: black;
+    display: block;
+    text-align: center;
+    font-size: 45px;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: -350px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 24px;
+}
+
+input[type="text"], input[type="password"] {
+    margin: 10px;
+    padding: 10px;
+    font-size: 24px;
+}
+
+input[type="submit"] {
+    margin: 10px;
+    padding: 10px;
+    font-size: 24px;
+    background-color: rgba(169, 173, 183, 0.8);
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #304b5a;
+}

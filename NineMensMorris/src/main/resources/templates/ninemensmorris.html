@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Gamestudio</title>
+  <link rel="stylesheet" href="/css/stylesheet.css"/>
+</head>
+<body>
+
+<script>
+  // Store the current scroll position in local storage
+  window.addEventListener('beforeunload', function() {
+    localStorage.setItem('scrollPos', window.pageYOffset);
+  });
+
+  // Retrieve and set the scroll position from local storage on page load
+  window.addEventListener('load', function() {
+    var scrollPos = localStorage.getItem('scrollPos');
+    if (scrollPos !== null) {
+      window.scrollTo(0, scrollPos);
+      localStorage.removeItem('scrollPos');
+    }
+  });
+</script>
+
+<!-- Login button -->
+<button onclick="openModalLogin()" style="padding: 15px 25px; font-size: 24px; background-color: #304b5a; color: white; border: none; border-radius: 30px; cursor: pointer;">Login</button>
+
+<!-- Login modal -->
+<div id="myModalLogin" class="modalLogin">
+  <div class="modalLogin-content">
+    <span class="closeLogin">&times;</span>
+    <div class="loginContainer">
+      <h1>LOGIN</h1>
+      <form id="loginForm" action="/login" method="get" autocomplete="off">
+        <label for="login">Username</label>
+        <input type="text" id="login" name="login" placeholder="Enter username">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter password">
+        <input type="hidden" id="hashedPassword" name="hashedPassword">
+        <input type="submit" value="Login">
+      </form>
+    </div>
+    <br><br>
+  </div>
+</div>
+
+<script>
+  var modalLogin = document.getElementById("myModalLogin");
+  var btnLogin = document.getElementById("gameBtn");
+  var spanLogin = document.getElementsByClassName("closeLogin")[0];
+
+  function openModalLogin() {
+    modalLogin.style.display = "block";
+  }
+
+  spanLogin.onclick = function() {
+    modalLogin.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target === modalLogin) {
+      modalLogin.style.display = "none";
+    }
+  }
+
+  function myFunction() {
+    alert("PRIHLAS SA ABO REGISTRUJ");
+  }
+</script>
+
+<button onclick="location.href='/logout'" style="padding: 15px 25px; font-size: 24px; background-color: #304b5a; color: white; border: none; border-radius: 30px; cursor: pointer;">Logout</button><br><br>
+
+<script>
+  function hashPassword()
+  {
+    var password = document.getElementById("password").value;
+    var hashedPassword = sha256(password);
+    document.getElementById("hashedPassword").value = hashedPassword;
+    return true;
+  }
+
+  document.getElementById("loginForm").addEventListener("submit", hashPassword);
+</script>
+
+
+
+
+<!-- Registration button -->
+<button class="nemamnervyuz" onclick="openModalRegistration()" style="padding: 15px 25px; font-size: 24px; background-color: #304b5a; color: white; border: none; border-radius: 30px; cursor: pointer;">Register</button>
+
+<!-- Registration modal -->
+<div id="myModalRegistration" class="modalRegistration">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="registerContainer">
+      <h1>REGISTER</h1>
+      <form id="registerForm" action="/register" method="post" autocomplete="off">
+        <label for="registerUsername">Username</label>
+        <input type="text" id="registerUsername" name="registerUsername" placeholder="Enter username">
+        <label for="registerPassword">Password</label>
+        <input type="password" id="registerPassword" name="registerPassword" placeholder="Enter password">
+        <input type="submit" value="Register">
+      </form>
+    </div>
+    <br><br>
+  </div>
+</div>
+
+<script>
+  var modalRegistration = document.getElementById("myModalRegistration");
+  var btnRegistration = document.getElementById("registerButton");
+  var spanRegistration = document.getElementsByClassName("close")[0];
+
+  function openModalRegistration() {
+    modalRegistration.style.display = "block";
+  }
+
+  spanRegistration.onclick = function() {
+    modalRegistration.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target === modalRegistration) {
+      modalRegistration.style.display = "none";
+    }
+  }
+</script>
+
+<script>
+  document.getElementById("registerButton").addEventListener("click", function() {
+    // Display the registration form
+    document.getElementById("registrationForm").style.display = "block";
+  });
+</script>
+
+<!--zarovnanie do stredu, pozadie nadpisu a pod-->
+
+<div class="title" style="text-align:center; box-sizing: border-box; background-color: rgba(169, 173, 183, 0.8); padding: 5px; border-radius: 20px; margin: 20px auto 40px auto; width: 50%;">
+  <h1 style="font-size: 60px; font-family: 'Open Sans', sans-serif; margin: 30px auto; uzer-select: none;">G A M E S T U D I O</h1>
+  <p style="font-size: 45px; font-family: 'Playfair Display', serif; margin: 0 auto 40px auto; uzer-select: none;">Nine Men's Morris</p>
+  <span th:if="${@userController.logged}">
+    <div class="loggedUserContainer">
+        Logged as: <span class="loggedUser" th:text="${@userController.loggedUser}"/>
+    </div>
+  </span>
+  <a href="/ninemensmorris/new" style="font-size: 24px; font-family: 'Playfair Display', serif; color: #9c0707; text-decoration: none; uzer-select: none;">Click here for new game</a>
+</div>
+
+
+<div class="gameStatus">
+  <span class="playerOnTurn">
+    Player on turn: <strong th:text="${@nineMensMorrisController.playerOnTurn}"></strong>
+  </span>
+  <span class="gameInfo">
+    Game state: <strong th:text="${@nineMensMorrisController.state}"></strong>
+  </span>
+</div>
+
+
+<!--zarovnanie celeho boardu do stredu je v css-->
+<div class="centered">
+  <span th:utext="${@nineMensMorrisController.getHtmlBoard()}"></span>
+</div>
+
+
+<table class="leaderboard">
+    <thead>
+        <tr>
+          <th colspan="4">
+            <p class="leaderboardTitle" style="font-size: 35px; color: white;">Leaderboard</p>
+          </th>
+        </tr>
+        <tr>
+        <th>rank</th>
+        <th>player</th>
+        <th>points</th>
+        <th>played at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each=" score, it : ${@scoreService.getTopScores('ninemensmorris')}">
+        <td th:text="${it.index + 1}"/>
+        <td th:text="${score.player}"/>
+        <td th:text="${score.points}"/>
+        <td th:text="${#dates.format(score.playedAt, 'dd.MM.yyyy HH:mm')}"/>
+      </tr>
+    </tbody>
+</table>
+
+
+<table class="comments">
+  <thead>
+  <tr>
+    <th colspan="4">
+      <p class="commentsTitle" style="font-size: 35px; color: white;">Comments</p>
+    </th>
+  </tr>
+    <tr>
+        <th>Player</th>
+        <th>Comment</th>
+        <th>Commented at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="comment : ${@commentService.getComments('ninemensmorris')}">
+      <td th:text="${comment.player}"/>
+      <td th:text="${comment.comment}"/>
+      <td th:text="${#dates.format(comment.commentedOn, 'dd.MM.yyyy HH:mm')}"/>
+    </tr>
+
+  </tbody>
+</table>
+
+<div class="comentContainer">
+  <form action="/ninemensmorris/addComment" method="get" autocomplete="off">
+    <label for="commentInput"></label>
+    <input type="text" id="commentInput" name="commentInput" placeholder="Enter comment">
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<table class="rating">
+  <thead>
+  <tr>
+    <th class="averageRatingTitle" style="font-size: 35px; color: white;">Average rating</th>
+    <th class="averageRatingValue" th:text="${@ratingService.getAverageRating('ninemensmorris')}"></th>
+  </tr>
+  </thead>
+</table>
+
+<div id="ratingButtonContainer">
+<button class="ratingButton" onclick="toggleRating()">Rate game</button>
+<form method="get" action="/ninemensmorris/addRating">
+  <div class="ratingButtons" id="ratingButtons" style="display: none;">
+    <button class="value1Button" type="submit" name="ratingButtons" value="1">1</button>
+    <button class="value2Button" type="submit" name="ratingButtons" value="2">2</button>
+    <button class="value3Button" type="submit" name="ratingButtons" value="3">3</button>
+    <button class="value4Button" type="submit" name="ratingButtons" value="4">4</button>
+    <button class="value5Button" type="submit" name="ratingButtons" value="5">5</button>
+  </div>
+</form>
+</div>
+
+
+<script>
+  function toggleRating() {
+    var x = document.getElementById("ratingButtons");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+</script>
+
+</body>
+</html>
